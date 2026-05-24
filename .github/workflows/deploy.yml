@@ -21,9 +21,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22  # 強制使用 Node 22
       - name: Install Dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps  # 使用 install 並忽略一些嚴格的依賴檢查
       - name: Build Quartz
         run: npx quartz build
       - name: Upload artifact
